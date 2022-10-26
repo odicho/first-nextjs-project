@@ -69,3 +69,8 @@ const PokemonListing: React.FC<{
 		</div>
 	);
 };
+
+/*
+	You left off at 1:13:50
+	You need to create a local instance of a database for shadow db and then proceed
+*/
