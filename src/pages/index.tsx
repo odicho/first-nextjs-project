@@ -1,5 +1,7 @@
+import { AppRouter } from "@/backend/router";
 import { getOptionsForVote } from "@/utils/getRandomPokemon";
 import { trpc } from "@/utils/trpc";
+import { inferProcedureOutput } from "@trpc/server";
 import { useState } from "react";
 
 const buttonClass =
@@ -24,39 +26,46 @@ export default function Home() {
 			<div className="text-center text-2xl">Which Pokemon is rounder?</div>
 			<div className="p-2" />
 			<div className="flex max-w-2xl items-center justify-between rounded border p-8">
-				<div className="flex h-64 w-64 flex-col items-center">
-					<img
-						src={firstPokemon.data?.sprites.front_default!}
-						className="w-full"
-					/>
-					<div className="mt-[-2rem] text-center text-xl capitalize">
-						{firstPokemon.data?.name}
-					</div>
-					<button
-						className={buttonClass}
-						onClick={() => voteForRoundest(first)}
-					>
-						Rounder
-					</button>
-				</div>
-				<div className="p-8">VS</div>
-				<div className="flex h-64 w-64 flex-col items-center">
-					<img
-						src={secondPokemon.data?.sprites.front_default!}
-						className="w-full"
-					/>
-					<div className="mt-[-2rem] text-center text-xl capitalize">
-						{secondPokemon.data?.name}
-					</div>
-					<button
-						className={buttonClass}
-						onClick={() => voteForRoundest(first)}
-					>
-						Rounder
-					</button>
-				</div>
+				{!firstPokemon.isLoading &&
+					firstPokemon.data &&
+					!secondPokemon.isLoading &&
+					secondPokemon.data && (
+						<>
+							<PokemonListing
+								pokemon={firstPokemon.data}
+								vote={() => voteForRoundest(first)}
+							/>
+							<div className="p-8">VS</div>
+
+							<PokemonListing
+								pokemon={secondPokemon.data}
+								vote={() => voteForRoundest(second)}
+							/>
+						</>
+					)}
 				<div className="p-2" />
 			</div>
 		</div>
 	);
 }
+
+export type PokemonGetOutput = inferProcedureOutput<
+	AppRouter["get-pokemon-by-id"]
+>;
+
+const PokemonListing: React.FC<{
+	pokemon: PokemonGetOutput;
+	vote: () => void;
+}> = (props) => {
+	return (
+		<div className="flex flex-col items-center">
+			<img src={props.pokemon.sprites.front_default!} className="h-64 w-64" />
+			<div className="mt-[-2rem] text-center text-xl capitalize">
+				{props.pokemon.name}
+			</div>
+			<button className={buttonClass} onClick={() => props.vote()}>
+				Rounder
+			</button>
+		</div>
+	);
+};
