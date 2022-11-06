@@ -4,6 +4,8 @@ import { trpc } from "@/utils/trpc";
 import { inferProcedureOutput } from "@trpc/server";
 import { useState } from "react";
 
+import Image from "next/image";
+
 const buttonClass =
 	"inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
 
@@ -15,8 +17,6 @@ export default function Home() {
 	const secondPokemon = trpc["get-pokemon-by-id"].useQuery({ id: second });
 
 	const voteMutation = trpc["cast-vote"].useMutation();
-
-	if (firstPokemon.isLoading || secondPokemon.isLoading) return null;
 
 	const voteForRoundest = (selected: number) => {
 		if (selected == first) {
@@ -66,7 +66,12 @@ const PokemonListing: React.FC<{
 }> = (props) => {
 	return (
 		<div className="flex flex-col items-center">
-			<img src={props.pokemon.sprites.front_default!} className="h-64 w-64" />
+			<Image
+				src={props.pokemon.sprites.front_default!}
+				width={256}
+				height={256}
+				layout="fixed"
+			/>
 			<div className="mt-[-2rem] text-center text-xl capitalize">
 				{props.pokemon.name}
 			</div>
