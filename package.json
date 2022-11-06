@@ -1,53 +1,53 @@
 {
-	"name": "first-nextjs-project",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
-		"ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\""
-	},
-	"dependencies": {
-		"@prisma/client": "^4.5.0",
-		"@tanstack/react-query": "^4.6.0",
-		"@trpc/client": "^10.0.0-proxy-beta.7",
-		"@trpc/next": "^10.0.0-proxy-beta.7",
-		"@trpc/react": "^10.0.0-proxy-beta.7",
-		"@trpc/server": "^10.0.0-proxy-beta.7",
-		"next": "12.2.2",
-		"pokenode-ts": "^1.17.0",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"ts-node": "^10.9.1",
-		"zod": "^3.19.1"
-	},
-	"devDependencies": {
-		"@types/node": "18.0.4",
-		"@types/react": "18.0.15",
-		"@types/react-dom": "18.0.6",
-		"autoprefixer": "^10.4.7",
-		"eslint": "8.19.0",
-		"eslint-config-next": "12.2.2",
-		"postcss": "^8.4.14",
-		"prettier": "^2.7.1",
-		"prettier-plugin-tailwindcss": "^0.1.12",
-		"prisma": "^4.5.0",
-		"tailwindcss": "^3.1.6",
-		"typescript": "4.7.4"
-	},
-	"description": "��#\u0000 \u0000f\u0000i\u0000r\u0000s\u0000t\u0000-\u0000n\u0000e\u0000x\u0000t\u0000j\u0000s\u0000-\u0000p\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000\r\u0000 \u0000",
-	"main": "next.config.js",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/odicho/first-nextjs-project.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/odicho/first-nextjs-project/issues"
-	},
-	"homepage": "https://github.com/odicho/first-nextjs-project#readme"
+  "name": "first-nextjs-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "ts-node": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\""
+  },
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "@tanstack/react-query": "^4.6.0",
+    "@trpc/next": "^10.0.0-proxy-beta.7",
+    "@trpc/react": "^10.0.0-proxy-beta.7",
+    "next": "12.2.2",
+    "pokenode-ts": "^1.17.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "ts-node": "^10.9.1",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@trpc/client": "^10.0.0-proxy-beta.26",
+    "@trpc/server": "^10.0.0-proxy-beta.26",
+    "@types/node": "18.0.4",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "autoprefixer": "^10.4.7",
+    "eslint": "8.19.0",
+    "eslint-config-next": "12.2.2",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.12",
+    "prisma": "^4.5.0",
+    "tailwindcss": "^3.1.6",
+    "typescript": "4.7.4"
+  },
+  "description": "��#\u0000 \u0000f\u0000i\u0000r\u0000s\u0000t\u0000-\u0000n\u0000e\u0000x\u0000t\u0000j\u0000s\u0000-\u0000p\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000\r\u0000 \u0000",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odicho/first-nextjs-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/odicho/first-nextjs-project/issues"
+  },
+  "homepage": "https://github.com/odicho/first-nextjs-project#readme"
 }
