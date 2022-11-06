@@ -16,6 +16,7 @@ export const appRouter = t.router({
 			const pokemon = await prisma.pokemon.findFirst({
 				where: { id: input.id },
 			});
+
 			if (!pokemon) throw new Error("Pokemon doesn't exist with this id");
 			return pokemon;
 		}),
