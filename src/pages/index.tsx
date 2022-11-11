@@ -56,9 +56,7 @@ export default function Home() {
 	);
 }
 
-export type PokemonGetOutput = inferProcedureOutput<
-	AppRouter["get-pokemon-by-id"]
->;
+type PokemonGetOutput = inferProcedureOutput<AppRouter["get-pokemon-by-id"]>;
 
 const PokemonListing: React.FC<{
 	pokemon: PokemonGetOutput;
