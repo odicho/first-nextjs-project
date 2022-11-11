@@ -5,6 +5,7 @@ import { inferProcedureOutput } from "@trpc/server";
 import { useState } from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const buttonClass =
 	"inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
@@ -28,29 +29,37 @@ export default function Home() {
 		setIds(getOptionsForVote());
 	};
 
+	const dataLoaded =
+		!firstPokemon.isLoading &&
+		firstPokemon.data &&
+		!secondPokemon.isLoading &&
+		secondPokemon.data;
+
 	return (
 		<div className="flex h-screen w-screen flex-col items-center justify-center">
 			<div className="text-center text-2xl">Which Pokemon is rounder?</div>
 			<div className="p-2" />
 			<div className="flex max-w-2xl items-center justify-between rounded border p-8">
-				{!firstPokemon.isLoading &&
-					firstPokemon.data &&
-					!secondPokemon.isLoading &&
-					secondPokemon.data && (
-						<>
-							<PokemonListing
-								pokemon={firstPokemon.data}
-								vote={() => voteForRoundest(first)}
-							/>
-							<div className="p-8">VS</div>
+				{dataLoaded && (
+					<>
+						<PokemonListing
+							pokemon={firstPokemon.data}
+							vote={() => voteForRoundest(first)}
+						/>
+						<div className="p-8">VS</div>
 
-							<PokemonListing
-								pokemon={secondPokemon.data}
-								vote={() => voteForRoundest(second)}
-							/>
-						</>
-					)}
+						<PokemonListing
+							pokemon={secondPokemon.data}
+							vote={() => voteForRoundest(second)}
+						/>
+					</>
+				)}
 				<div className="p-2" />
+			</div>
+			<div className="absolute bottom-0 w-full pb-2 text-center text-xl">
+				<Link href="/results">
+					<a>Results</a>
+				</Link>
 			</div>
 		</div>
 	);
